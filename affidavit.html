@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Affidavit of Loss</title>
+  <style>
+    /* Page layout */
+    @page { size: A4; margin: 40pt; }
+    body { font-family: DejaVu Sans, Arial, Helvetica, sans-serif; font-size: 12px; color: #111; line-height: 1.5; }
+
+    .container { width: 100%; max-width: 780pt; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 24px; }
+    header h1 { margin: 0; font-size: 20px; letter-spacing: 1px; }
+    header p { margin: 4px 0 0 0; font-size: 11px; }
+
+    .section { margin-bottom: 16px; }
+    .bold { font-weight: 700; }
+    .center { text-align: center; }
+
+    .info-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .info-table td { padding: 6px 4px; vertical-align: top; }
+    .label { width: 150px; font-weight: 700; }
+
+    .statement { text-align: justify; }
+
+    .signature-block { margin-top: 36px; }
+    .sig-line { width: 260px; border-top: 1px solid #000; text-align: center; padding-top: 6px; }
+
+    .small { font-size: 11px; }
+
+    .notary { margin-top: 24px; border-top: 1px dashed #888; padding-top: 12px; }
+
+    /* Make sure long text wraps cleanly for PDFs */
+    p { margin: 0 0 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AFFIDAVIT OF LOSS</h1>
+      <p class="small">(To be completed and signed by the person who lost the item)</p>
+    </header>
+
+    <!-- Declarant details -->
+    <div class="section">
+      <table class="info-table">
+        <tr>
+          <td class="label">Name of Declarant:</td>
+          <td>{{ declarant_name }}</td>
+        </tr>
+        <tr>
+          <td class="label">Address:</td>
+          <td>{{ declarant_address }}</td>
+        </tr>
+        <tr>
+          <td class="label">Contact No.:</td>
+          <td>{{ declarant_contact }}</td>
+        </tr>
+        <tr>
+          <td class="label">Email (if any):</td>
+          <td>{{ declarant_email }}</td>
+        </tr>
+        <tr>
+          <td class="label">Date:</td>
+          <td>{{ affidavit_date }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Statement of loss -->
+    <div class="section statement">
+      <p class="bold">I, {{ declarant_name }}, of legal age, Filipino, and a resident of {{ declarant_address }}, after being duly sworn, hereby depose and say:</p>
+
+      <p>1. That I am the lawful owner/possessor of the following item(s) which was/were lost:</p>
+
+      <p class="small">
+        <strong>Item:</strong> {{ lost_item_description }}<br />
+        <strong>Serial/ID No. (if any):</strong> {{ lost_item_serial }}<br />
+        <strong>Date & Place of Loss:</strong> {{ date_place_of_loss }}<br />
+        <strong>Circumstances of Loss:</strong> {{ circumstances_of_loss }}
+      </p>
+
+      <p>2. That the loss occurred on or about <strong>{{ date_of_loss }}</strong> at or near <strong>{{ place_of_loss }}</strong>, under the following circumstances: {{ detailed_circumstances }}</p>
+
+      <p>3. That despite diligent efforts to locate the said item(s), I have been unable to recover them as of the date of this Affidavit.</p>
+
+      <p>4. That I execute this Affidavit to attest to the truth of the foregoing facts and for whatever legal purpose this may serve.</p>
+
+      <p class="small">Additional remarks: {{ additional_remarks }}</p>
+    </div>
+
+    <!-- Signature -->
+    <div class="section signature-block">
+      <div style="width:60%;">
+        <div class="sig-line">{{ declarant_name }}</div>
+        <div class="small center">Signature over printed name of Declarant</div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <div class="small">Signed in the presence of:</div>
+        <table class="info-table" style="margin-top:8px;">
+          <tr>
+            <td class="label">Witness 1:</td>
+            <td>{{ witness1_name }}<br/><span class="small">Signature: ____________________</span></td>
+          </tr>
+          <tr>
+            <td class="label">Witness 2:</td>
+            <td>{{ witness2_name }}<br/><span class="small">Signature: ____________________</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Notary / Certification block (optional) -->
+    {% if notarized %}
+    <div class="section notary">
+      <div class="bold">ACKNOWLEDGMENT</div>
+      <p>On this <strong>{{ acknowledgment_date }}</strong> before me, a Notary Public for <strong>{{ notary_jurisdiction }}</strong>, personally appeared <strong>{{ declarant_name }}</strong> with ID No. <strong>{{ declarant_id }}</strong>, known to me and to me known to be the same person who executed the foregoing Affidavit of Loss and who acknowledged to me that the same is his/her free and voluntary act.</p>
+
+      <p>WITNESS my hand and seal on <strong>{{ acknowledgment_date }}</strong>.</p>
+
+      <div style="margin-top:18px;">
+        <div class="sig-line" style="width:48%;">{{ notary_name }}</div>
+        <div class="small center">Notary Public</div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer style="margin-top:40px; font-size:10px; text-align:center; color:#666;">
+      This Affidavit of Loss was generated using a PDF template. Please attach any supporting documents (police report, IDs, receipts) as needed.
+    </footer>
+  </div>
+</body>
+</html>
