@@ -72,7 +72,8 @@
 
       <p class="small">
         <strong>Item:</strong> {{ lost_item_description }}<br />
-        <strong>Serial/ID No. (if any):</strong> {{ lost_item_serial }}<br />
+        <strong>Document Number: (if any):</strong> {{ lost_item_serial }}<br />
+        <strong>Issuing Authority: (if any):</strong> {{ lost_item_serial }}<br />
         <strong>Date & Place of Loss:</strong> {{ date_place_of_loss }}<br />
         <strong>Circumstances of Loss:</strong> {{ circumstances_of_loss }}
       </p>
@@ -89,8 +90,8 @@
     <!-- Signature -->
     <div class="section signature-block">
       <div style="width:60%;">
-        <div class="sig-line">{{ declarant_name }}</div>
-        <div class="small center">Signature over printed name of Declarant</div>
+        <img src="{{declarant_signature}}" alt="Signature" width="200" height="80" />
+        <div class="small left">Signature over printed name of Declarant</div>
       </div>
 
       <div style="margin-top:18px;">
@@ -125,7 +126,7 @@
 
     <!-- Footer -->
     <footer style="margin-top:40px; font-size:10px; text-align:center; color:#666;">
-      This Affidavit of Loss was generated using a PDF template. Please attach any supporting documents (police report, IDs, receipts) as needed.
+      © 2025 BarangayMo. All rights reserved.
     </footer>
   </div>
 </body>
