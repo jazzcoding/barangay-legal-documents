@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Notarization Document</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      font-size: 12pt;
+      margin: 40px;
+      line-height: 1.5;
+    }
+    .header {
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .title {
+      text-align: center;
+      text-decoration: underline;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .content {
+      text-align: justify;
+    }
+    .signature-section {
+      margin-top: 40px;
+    }
+    .signature-line {
+      margin-top: 40px;
+    }
+    .notary-info {
+      margin-top: 40px;
+      text-align: right;
+    }
+    .seal {
+      margin-top: 20px;
+      font-style: italic;
+      text-align: center;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 11pt;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    Republic of the Philippines<br>
+    City/Municipality of {{notarization_place}}
+  </div>
+
+  <div class="title">ACKNOWLEDGMENT</div>
+
+  <div class="content">
+    <p>
+      Before me, a Notary Public for and in the City/Municipality of <strong>{{notarization_place}}</strong>, this
+      <strong>{{notarization_date}}</strong>, personally appeared <strong>{{affiant_name}}</strong>,
+      of legal age, Filipino, with residence at <strong>{{affiant_address}}</strong>, who has satisfactorily proven to me
+      his/her identity through his/her government-issued identification card, to wit:
+      <strong>{{affiant_id_type}}</strong> with ID No. <strong>{{affiant_id_number}}</strong>, issued on
+      <strong>{{affiant_id_date_issued}}</strong>.
+    </p>
+
+    <p>
+      The said affiant is personally known to me and acknowledged to me that the same is his/her free and voluntary act
+      and deed and that of the entity he/she represents. The affiant further declared that this notarization pertains to the
+      document titled <strong><em>“{{document_type}}”</em></strong>, executed for the purpose of
+      <strong><em>{{document_purpose}}</em></strong>.
+    </p>
+
+    <p>
+      Witness my hand and seal this <strong>{{notarization_date}}</strong> at my office in
+      <strong>{{notary_office_address}}</strong>.
+    </p>
+  </div>
+
+  <div class="signature-section">
+    <div class="signature-line">
+      ___________________________<br>
+      <strong>{{affiant_name}}</strong><br>
+      Affiant
+    </div>
+  </div>
+
+  <div class="notary-info">
+    <strong>NOTARY PUBLIC</strong><br>
+    {{notary_name}}<br>
+    {{notary_office_address}}<br><br>
+    PTR No. {{notary_ptr_no}} / {{notary_ptr_date}} / {{notary_ptr_place}}<br>
+    IBP No. {{notary_ibp_no}} / {{notary_ibp_place}}<br>
+    Roll No. {{notary_roll_no}} / MCLE Compliance No. {{notary_mcle_no}}
+  </div>
+
+  <div class="seal">(Notarial Seal)</div>
+
+  <div class="footer">
+    Doc. No. {{doc_no}}<br>
+    Page No. {{page_no}}<br>
+    Book No. {{book_no}}<br>
+    Series of {{series_year}}
+  </div>
+
+</body>
+</html>
